@@ -15,9 +15,9 @@ namespace DataStructuresGroup.Controllers
         }
 
 
-        /*public ActionResult Exit()
+        public ActionResult Exit()
         {
-            return Redirect(http://byu.edu);
-        }*/
+            return Redirect("http://byu.edu");
+        }
     }
 }

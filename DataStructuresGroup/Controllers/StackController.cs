@@ -29,5 +29,19 @@ namespace DataStructuresGroup.Controllers
             ViewBag.Stack = myStack;
             return View("Index");
         }
+
+        public ActionResult HugeList()
+        {
+            myStack.Clear();
+            for (int iCount=0; iCount<2000; iCount++)
+            {
+                myStack.Push(
+                    "New Entry " + (myStack.Count + 1)
+                    );
+                ViewBag.Stack = myStack;
+
+            }
+            return View("Index");
+        }
     }
 }
