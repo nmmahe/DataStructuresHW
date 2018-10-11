@@ -48,7 +48,7 @@ namespace DataStructuresGroup.Controllers
         {
             foreach (var item in myStack)
             {
-                ViewBag.Display += "< p >" + item + "</ p >";
+                ViewBag.Display += "<p>" + item + "</p>";
     }
 
             return View("Index");
