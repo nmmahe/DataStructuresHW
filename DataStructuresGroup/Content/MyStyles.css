@@ -7,3 +7,11 @@
     margin-right: auto;
     width: 50%;
 }
+
+#StackDisplay {
+    visibility: hidden;
+}
+
+#StackShow {
+    visibility: visible;
+}

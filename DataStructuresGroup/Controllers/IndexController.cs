@@ -19,5 +19,7 @@ namespace DataStructuresGroup.Controllers
         {
             return Redirect("http://byu.edu");
         }
+
+      
     }
 }
