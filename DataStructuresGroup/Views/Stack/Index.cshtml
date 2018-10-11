@@ -23,6 +23,15 @@
     <a href="#" class="w3-bar-item w3-button">Return to Main Menu</a>
 </div>
 
-<div style="width: 75%; float: right; text-align: center;">
-    @ViewBag.Display
+<div class="rightdisplay" style="width: 75%; float: right; text-align: center;">
+    @if (ViewBag.Stack != null)
+    {
+        foreach (var item in ViewBag.Stack)
+        {
+            <p>@item</p>
+
+        }
+    }
+
+
 </div>

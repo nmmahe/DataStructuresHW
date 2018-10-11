@@ -13,8 +13,7 @@ namespace DataStructuresGroup.Controllers
         // GET: Stack
         public ActionResult Index()
         {
-
-            ViewBag.Stack = myStack;
+            
             return View();
         }
 
@@ -26,7 +25,7 @@ namespace DataStructuresGroup.Controllers
             "New Entry " + (myStack.Count + 1)
             );
 
-            ViewBag.Stack = myStack;
+            
             return View("Index");
         }
 
@@ -38,7 +37,7 @@ namespace DataStructuresGroup.Controllers
                 myStack.Push(
                     "New Entry " + (myStack.Count + 1)
                     );
-                ViewBag.Stack = myStack;
+                
 
             }
             return View("Index");
@@ -46,10 +45,7 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult Display()
         {
-            foreach (var item in myStack)
-            {
-                ViewBag.Display += "<p>" + item + "</p>";
-    }
+            ViewBag.Stack = myStack;
 
             return View("Index");
         }
