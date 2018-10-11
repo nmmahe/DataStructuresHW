@@ -43,5 +43,15 @@ namespace DataStructuresGroup.Controllers
             }
             return View("Index");
         }
+
+        public ActionResult Display()
+        {
+            foreach (var item in myStack)
+            {
+                ViewBag.Display += "< p >" + item + "</ p >";
+    }
+
+            return View("Index");
+        }
     }
 }
