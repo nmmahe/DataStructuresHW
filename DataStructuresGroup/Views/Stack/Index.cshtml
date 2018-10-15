@@ -24,7 +24,13 @@
 </div>
 
 
-<div id=@ViewBag.Hide style="float:right">
+<div class="row">
+    <div class="col-lg-6" style="float:right">
+        <h3>@ViewBag.Search</h3>
+        <h4>Time to find item: @ViewBag.StopWatch</h4>
+    </div>
+</div>
+<div class="col-lg-6" id=@ViewBag.Hide style="float:right">
     @if (ViewBag.Stack != null)
     {
         foreach (var item in ViewBag.Stack)
