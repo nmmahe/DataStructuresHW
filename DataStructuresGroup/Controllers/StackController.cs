@@ -60,6 +60,7 @@ namespace DataStructuresGroup.Controllers
         {
             myStack.Pop();
 
+
             ViewBag.Stack = myStack;
             return View("Index");
 
@@ -76,17 +77,8 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult SearchStack()
         {
-            //make input tag
-            //var search = "<input type='text' id='mySearch' onkeyup='myFunction()' placeholder='Search..' title='Type in an entry'>";
-            //
+            
 
-            /*foreach (string check in myStack)
-            {
-                if (check == "New Entry 5")
-                {
-                    return 
-                }
-            }*/
             ViewBag.Stack = myStack;
             foreach(var i in myStack)
             {
@@ -115,7 +107,11 @@ namespace DataStructuresGroup.Controllers
 
 
             return View("Index");
+
         }
+
+
+        
 
         public ActionResult MainMenu()
         {
