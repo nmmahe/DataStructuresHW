@@ -24,14 +24,13 @@
 </div>
 
 
-<div class="row">
-    <div class="col-lg-6" style="float:right">
-        <h3>@ViewBag.Search</h3>
-        @if (ViewBag.StopWatch != null)
-        {
+<div class="rightdisplay">
+    <h3>@ViewBag.Search</h3>
+    @if (ViewBag.StopWatch != null)
+    {
         <h4>Time to find item: @ViewBag.StopWatch</h4>
-        }
-    </div>
+    }
+    <hr />
 </div>
 <div class="rightdisplay" id=@ViewBag.Hide style="float:right">
     @if (ViewBag.Stack != null)
@@ -51,9 +50,14 @@
             else
             {
             }
+
         }
     }
-        
+    else
+    {
+        <text>No Entries in Stack</text>
+    }
+
     <footer>
         <hr />
         <p>&copy; @DateTime.Now.Year - Nick Mahe, Sam Bankhead, Zack Jenkins, Colby Nelson</p>
