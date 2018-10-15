@@ -16,16 +16,39 @@
     <h3 class="w3-bar-item">Menu</h3>
     <a href="@Url.Action("AddOne", "Stack")" class="w3-bar-item w3-button">Add one time to Stack</a>
     <a href="@Url.Action("HugeList", "Stack")" class="w3-bar-item w3-button">Add Huge List of Items to Stack</a>
-    <a href="#" class="w3-bar-item w3-button">Display Stack</a>
+    <a href="@Url.Action("Display", "Stack")" class="w3-bar-item w3-button">Display Stack</a>
     <a href="#" class="w3-bar-item w3-button">Delete Stack</a>
     <a href="#" class="w3-bar-item w3-button">Clear Stack</a>
     <a href="#" class="w3-bar-item w3-button">Search Stack</a>
     <a href="#" class="w3-bar-item w3-button">Return to Main Menu</a>
 </div>
 
-<div>
-    @foreach(var item in ViewBag.Stack)
+<div class="rightdisplay">
+    <!--Loop to display all current items in stack-->
+    @if (ViewBag.Stack != null)
     {
-        <p>@item</p>
+        int iCount = 0;
+        foreach (var item in ViewBag.Stack)
+        {
+            iCount++;
+            @item<text>; </text>
+            if (iCount == 0)
+            {
+            }
+            else if (iCount % 6 == 0)
+            {
+                <br />
+            }
+            else
+            {
+            }
+
+        }
     }
+
+    <footer>
+        <hr />
+        <p>&copy; @DateTime.Now.Year - Nick Mahe, Sam Bankhead, Zack Jenkins, Colby Nelson</p>
+    </footer>
+
 </div>
