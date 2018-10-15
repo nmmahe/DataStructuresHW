@@ -14,24 +14,12 @@ namespace DataStructuresGroup.Controllers
             return View();
         }
 
-        public ActionResult Stack()
-        {
-            return View();
-        }
-
-        public ActionResult Queue()
-        {
-            return View();
-        }
-
-        public ActionResult Dictionary()
-        {
-            return View();
-        }
 
         public ActionResult Exit()
         {
-            return View();
+            return Redirect("http://byu.edu");
         }
+
+      
     }
 }

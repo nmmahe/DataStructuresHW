@@ -60,6 +60,7 @@ namespace DataStructuresGroup.Controllers
         {
             myStack.Pop();
 
+
             ViewBag.Stack = myStack;
             return View("Index");
 
@@ -87,6 +88,7 @@ namespace DataStructuresGroup.Controllers
                     return 
                 }
             }*/
+
             ViewBag.Stack = myStack;
             foreach(var i in myStack)
             {
@@ -114,9 +116,12 @@ namespace DataStructuresGroup.Controllers
             ViewBag.StopWatch = ts;
 
 
-
             return View("Index");
+
         }
+
+
+        
 
         public ActionResult MainMenu()
         {
