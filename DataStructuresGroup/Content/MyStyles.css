@@ -8,6 +8,7 @@
     width: 50%;
 }
 
+
 #StackHide {
     visibility: hidden;
 }
@@ -15,3 +16,10 @@
 #StackShow {
     visibility: visible;
 }
+
+.rightdisplay {
+    width: 70%; 
+    float: right; 
+    text-align: center;
+}
+

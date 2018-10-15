@@ -16,9 +16,13 @@ namespace DataStructuresGroup.Controllers
         public ActionResult Index()
         {
 
+
             ViewBag.Stack = myStack;
             ViewBag.Hide = "StackHide";
             //ViewBag.Search = search;
+
+            
+
             return View();
         }
 
@@ -30,7 +34,7 @@ namespace DataStructuresGroup.Controllers
             "New Entry " + (myStack.Count + 1)
             );
 
-            //ViewBag.Stack=myStack;
+
             return View("Index");
         }
 
@@ -42,11 +46,12 @@ namespace DataStructuresGroup.Controllers
                 myStack.Push(
                     "New Entry " + (myStack.Count + 1)
                     );
-                //ViewBag.Stack = myStack;
+
 
             }
             return View("Index");
         }
+
 
         public ActionResult DisplayStack()
         {
@@ -111,11 +116,19 @@ namespace DataStructuresGroup.Controllers
         }
 
 
-        
+
 
         public ActionResult MainMenu()
         {
-            return RedirectToAction("Index","Index");
+            return RedirectToAction("Index", "Index");
+        }
+
+        public ActionResult Display()
+        {
+            ViewBag.Stack = myStack;
+
+            return View("Index");
+
         }
     }
 }

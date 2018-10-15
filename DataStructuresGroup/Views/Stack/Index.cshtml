@@ -33,12 +33,30 @@
         }
     </div>
 </div>
-<div class="col-lg-6" id=@ViewBag.Hide style="float:right">
+<div class="rightdisplay" id=@ViewBag.Hide style="float:right">
     @if (ViewBag.Stack != null)
     {
+        int iCount = 0;
         foreach (var item in ViewBag.Stack)
-        { 
-        <p>@item</p>
+        {
+            iCount++;
+            @item<text>; </text>
+            if (iCount == 0)
+            {
+            }
+            else if (iCount % 6 == 0)
+            {
+                <br />
+            }
+            else
+            {
+            }
         }
     }
+        
+    <footer>
+        <hr />
+        <p>&copy; @DateTime.Now.Year - Nick Mahe, Sam Bankhead, Zack Jenkins, Colby Nelson</p>
+    </footer>
+
 </div>
