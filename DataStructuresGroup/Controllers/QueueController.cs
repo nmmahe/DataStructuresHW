@@ -52,11 +52,11 @@ namespace DataStructuresGroup.Controllers
         {
             if (myQueue.Count != 0)
             {
-                if (myQueue.Count != 0)
+                if (myQueue.Count > 0)
                 {
                     myQueue.Dequeue();
                 }
-                else if (myQueue.Count == 0)
+                else
                 {
                     ViewBag.errormsg = "No entries in queue";
                 }

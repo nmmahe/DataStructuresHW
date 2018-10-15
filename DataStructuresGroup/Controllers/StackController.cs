@@ -72,11 +72,11 @@ namespace DataStructuresGroup.Controllers
         public ActionResult DeleteStack()
         {
 
-            if (myStack.Count != 0)
+            if (myStack.Count > 0)
             {
                 myStack.Pop();
             }
-            else if (myStack is null)
+            else 
             {
                 ViewBag.errormsg = "No entries in stack";
             }
