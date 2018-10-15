@@ -25,7 +25,7 @@
 
 
 <div class="row">
-    <div class="col-lg-6" style="float:right">
+    <div class="rightdisplay" >
         <h3>@ViewBag.Search</h3>
         @if (ViewBag.StopWatch != null)
         {
@@ -34,6 +34,12 @@
     </div>
 </div>
 <div class="rightdisplay" id=@ViewBag.Hide style="float:right">
+    @if(ViewBag.Stack==null)
+    {
+        <text>Error.  </text>;
+    }
+    
+
     @if (ViewBag.Stack != null)
     {
         int iCount = 0;

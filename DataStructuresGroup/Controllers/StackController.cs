@@ -63,10 +63,13 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult DeleteStack()
         {
-            myStack.Pop();
-
+            if (myStack.Count != 0)
+            {
+                myStack.Pop();
+            }
 
             ViewBag.Stack = myStack;
+
             return View("Index");
 
         }
