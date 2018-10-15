@@ -37,15 +37,29 @@ namespace DataStructuresGroup.Controllers
         }
         public ActionResult DisplayQueue()
         {
-            ViewBag.Hide = "QueueShow";
-            ViewBag.Queue = myQueue;
+            if (myQueue.Count == 0)
+            {
+                ViewBag.errormsg = "No entries in queue";
+            }
+            else
+            {
+                ViewBag.Hide = "QueueShow";
+                ViewBag.Queue = myQueue;
+            }
             return View("Index");
         }
         public ActionResult DeleteQueue()
         {
             if (myQueue.Count != 0)
             {
-                myQueue.Dequeue();
+                if (myQueue.Count != 0)
+                {
+                    myQueue.Dequeue();
+                }
+                else if (myQueue.Count == 0)
+                {
+                    ViewBag.errormsg = "No entries in queue";
+                }
             }
             ViewBag.Queue = myQueue;
             return View("Index");
@@ -58,26 +72,34 @@ namespace DataStructuresGroup.Controllers
         }
         public ActionResult SearchQueue()
         {
-            ViewBag.Queue = myQueue;
-            foreach (var i in myQueue)
+            if (myQueue.Count != 0)
             {
-                if (i == "New Entry 7")
+                ViewBag.Queue = myQueue;
+                foreach (var i in myQueue)
                 {
-                    ViewBag.Search = "New Entry 7 is found!";
-                    break;
+                    if (i == "New Entry 7")
+                    {
+                        ViewBag.Search = "New Entry 7 is found!";
+                        break;
+                    }
+                    else
+                    {
+                        ViewBag.Search = "New Entry 7 is not found!";
+                    }
                 }
-                else
-                {
-                    ViewBag.Search = "New Entry 7 is not found!";
-                }
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                sw.Start();
+                //loop to do all the work
+                sw.Stop();
+                TimeSpan ts = sw.Elapsed;
+                ViewBag.StopWatch = ts;
             }
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-            //loop to do all the work
-            sw.Stop();
-            TimeSpan ts = sw.Elapsed;
-            ViewBag.StopWatch = ts;
+            else
+            {
+                ViewBag.errormsg = "No entries found";
+            }
             return View("Index");
+
         }
 
         public ActionResult MainMenu()

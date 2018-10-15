@@ -3,7 +3,7 @@
 }
 <h2>Queue Index</h2>
 <div class="w3-bar w3-black">
-    <a href="@Url.Action("Index", "Queue")" class="w3-bar-item w3-button">Queue</a>
+    <a href="@Url.Action("Index", "Stack")" class="w3-bar-item w3-button">Stack</a>
     <a href="@Url.Action("Index", "Queue")" class="w3-bar-item w3-button">Queue</a>
     <a href="@Url.Action("Index", "Dictionary")" class="w3-bar-item w3-button">Dictionary</a>
     <a href="@Url.Action("Exit", "Index")" class="w3-bar-item w3-button">Exit</a>
@@ -28,10 +28,6 @@
     <hr />
 </div>
 <div class="rightdisplay" id=@ViewBag.Hide style="float:right">
-    @if (ViewBag.Queue == null)
-    {
-        <text>Error.  </text>;
-    }
 
     @if (ViewBag.Queue != null)
     {
@@ -53,10 +49,8 @@
 
         }
     }
-    else
-    {
-        <text>No Entries in Queue</text>
-    }
+
+    @ViewBag.errormsg
     <footer>
         <hr />
         <p>&copy; @DateTime.Now.Year - Nick Mahe, Sam Bankhead, Zack Jenkins, Colby Nelson</p>

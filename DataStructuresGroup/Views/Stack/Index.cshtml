@@ -34,7 +34,7 @@
     <hr />
 </div>
 <div class="rightdisplay" id=@ViewBag.Hide style="float:right">
-    
+
 
     @if (ViewBag.Stack != null)
     {
@@ -56,11 +56,8 @@
 
         }
     }
-    else if (ViewBag.Stack.Count() == 0)
-    {
-        <text>No Entries in Stack</text>
-    }
 
+    @ViewBag.errormsg
     <footer>
         <hr />
         <p>&copy; @DateTime.Now.Year - Nick Mahe, Sam Bankhead, Zack Jenkins, Colby Nelson</p>
