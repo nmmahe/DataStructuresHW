@@ -14,7 +14,7 @@ namespace DataStructuresGroup.Controllers
         {
             ViewBag.Dictionary = myDictionary;
             ViewBag.Hide = "StackHide";
-            return View();
+            return View("Index");
         }
 
         public ActionResult AddOne()
@@ -41,17 +41,31 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult DisplayDictionary()
         {
-            ViewBag.Hide = "StackShow";
-            ViewBag.Dictionary = myDictionary.Keys;
-
+            if (myDictionary.Count > 0)
+            {
+                ViewBag.Hide = "StackShow";
+                ViewBag.Dictionary = myDictionary.Keys;
+            }
+            else
+            {
+                ViewBag.errormsg = "ERROR: There are no entries in the dictionary";
+            }
+      
             return View("Index");
         }
 
         public ActionResult DeleteDictionary()
         {
-            myDictionary.Remove("New Entry " + (myDictionary.Count));
+            if (myDictionary.Count > 0)
+            {
+                myDictionary.Remove("New Entry " + (myDictionary.Count));
+            }
+            else
+            {
+                ViewBag.errormsg = "No entries in dictionary";
+            }
 
-            ViewBag.Dictionary = myDictionary;
+            ViewBag.Dictionary = myDictionary.Keys;
             return View("Index");
 
         }
@@ -67,29 +81,36 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult SearchDictionary()
         {
-            ViewBag.Dictionary = myDictionary;
+            ViewBag.Dictionary = myDictionary.Keys;
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 
             sw.Start();
-
-            foreach (var i in myDictionary.Keys)
+            if (myDictionary.Count != 0)
             {
-                if (i == "New Entry 7")
+                foreach (var i in myDictionary.Keys)
                 {
-                    ViewBag.Search = "New Entry 7 is found!";
-                    break;
+                    if (i == "New Entry 7")
+                    {
+                        ViewBag.Search = "New Entry 7 is found!";
+                        break;
+                    }
+                    else
+                    {
+                        ViewBag.Search = "New Entry 7 is not found!";
+                    }
                 }
-                else
-                {
-                    ViewBag.Search = "New Entry 7 is not found!";
-                }
+
+                sw.Stop();
+
+                TimeSpan ts = sw.Elapsed;
+
+                ViewBag.StopWatch = ts;
+
             }
-
-            sw.Stop();
-
-            TimeSpan ts = sw.Elapsed;
-
-            ViewBag.StopWatch = ts;
+            else
+            {
+                ViewBag.errormsg = "No entries found";
+            }
 
 
             return View("Index");
@@ -102,5 +123,3 @@ namespace DataStructuresGroup.Controllers
         }
     }
 }
-
-//im pushing it -zack

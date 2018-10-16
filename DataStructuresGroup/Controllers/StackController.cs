@@ -55,18 +55,34 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult DisplayStack()
         {
-            ViewBag.Hide = "StackShow";
-            ViewBag.Stack = myStack;
-            return View("Index"); 
-            
+            if (myStack.Count == 0)
+            {
+                ViewBag.errormsg = "No entries in stack";
+            }
+            else
+            {
+                ViewBag.Hide = "StackShow";
+                ViewBag.Stack = myStack;
+            }
+
+            return View("Index");
+
         }
 
         public ActionResult DeleteStack()
         {
-            myStack.Pop();
 
+            if (myStack.Count > 0)
+            {
+                myStack.Pop();
+            }
+            else 
+            {
+                ViewBag.errormsg = "No entries in stack";
+            }
 
             ViewBag.Stack = myStack;
+
             return View("Index");
 
         }
@@ -82,33 +98,38 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult SearchStack()
         {
-            
-
-            ViewBag.Stack = myStack;
-            foreach(var i in myStack)
+            if (myStack.Count != 0)
             {
-                if (i=="New Entry 7")
+                ViewBag.Stack = myStack;
+                foreach (var i in myStack)
                 {
-                    ViewBag.Search = "New Entry 7 is found!";
-                    break;
+                    if (i == "New Entry 7")
+                    {
+                        ViewBag.Search = "New Entry 7 is found!";
+                        break;
+                    }
+                    else
+                    {
+                        ViewBag.Search = "New Entry 7 is not found!";
+                    }
                 }
-                else
-                {
-                    ViewBag.Search = "New Entry 7 is not found!";
-                }
+
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
+                sw.Start();
+
+                //loop to do all the work
+
+                sw.Stop();
+
+                TimeSpan ts = sw.Elapsed;
+
+                ViewBag.StopWatch = ts;
             }
-
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-
-            sw.Start();
-
-            //loop to do all the work
-
-            sw.Stop();
-
-            TimeSpan ts = sw.Elapsed;
-
-            ViewBag.StopWatch = ts;
+            else
+            {
+                ViewBag.errormsg = "No entries found";
+            }
 
 
             return View("Index");
