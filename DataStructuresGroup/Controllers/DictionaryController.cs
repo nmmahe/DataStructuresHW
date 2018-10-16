@@ -41,16 +41,15 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult DisplayDictionary()
         {
-            if (myDictionary.Count == 0)
-            {
-                ViewBag.errormsg = "No entries in dictionary";
-            }
-            else
+            if (myDictionary.Count > 0)
             {
                 ViewBag.Hide = "StackShow";
                 ViewBag.Dictionary = myDictionary.Keys;
             }
-
+            else
+            {
+                ViewBag.errormsg = "ERROR: There are no entries in the dictionary";
+            }
             return View("Index");
         }
 
@@ -65,7 +64,8 @@ namespace DataStructuresGroup.Controllers
                 ViewBag.errormsg = "No entries in dictionary";
             }
 
-            ViewBag.Dictionary = myDictionary;
+
+            ViewBag.Dictionary = myDictionary.Keys;
             return View("Index");
 
         }
@@ -81,13 +81,12 @@ namespace DataStructuresGroup.Controllers
 
         public ActionResult SearchDictionary()
         {
+            ViewBag.Dictionary = myDictionary.Keys;
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
+            sw.Start();
             if (myDictionary.Count != 0)
             {
-                ViewBag.Dictionary = myDictionary;
-                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-
-                sw.Start();
-
                 foreach (var i in myDictionary.Keys)
                 {
                     if (i == "New Entry 7")
@@ -106,6 +105,7 @@ namespace DataStructuresGroup.Controllers
                 TimeSpan ts = sw.Elapsed;
 
                 ViewBag.StopWatch = ts;
+
             }
             else
             {
